@@ -15,13 +15,13 @@ public class SpeakerController {
         this.speakerService = speakerService;
     }
 
-    @PutMapping("speaker")
+    @PostMapping("speaker")
     public Speaker create(@RequestBody Speaker speaker){
         System.out.println("Name : " + speaker.getName());
         return speakerService.create(speaker);
     }
 
-    @GetMapping
+    @GetMapping("speakers")
     public List<Speaker> getSpeakers() {
         return speakerService.findAll();
     }

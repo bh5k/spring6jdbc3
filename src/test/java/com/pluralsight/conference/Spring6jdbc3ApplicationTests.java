@@ -21,15 +21,16 @@ class Spring6jdbc3ApplicationTests {
         Speaker speaker = new Speaker();
         speaker.setName("Obida");
 
-        restTemplate.put("http://localhost:8080/speaker", speaker);
+        speaker = restTemplate.postForObject("http://localhost:8080/speaker", speaker, Speaker.class);
 
+        System.out.println(speaker.getName());
     }
     @Test
     void testGetSpeakers() {
         RestTemplate restTemplate = new RestTemplate();
 
         ResponseEntity<List<Speaker>> speakersResponse = restTemplate.exchange(
-                "http://localhost:8080/", HttpMethod.GET,
+                "http://localhost:8080/speakers", HttpMethod.GET,
                 null, new ParameterizedTypeReference<List<Speaker>>() {
                 });
 
