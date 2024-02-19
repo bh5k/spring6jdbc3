@@ -1,6 +1,7 @@
 package com.pluralsight.conference.repository;
 
 import com.pluralsight.conference.model.Speaker;
+import com.pluralsight.conference.repository.util.SpeakerRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -18,17 +19,7 @@ public class SpeakerRepositoryImpl implements SpeakerRepository {
     }
 
     public List<Speaker> findAll() {
-
-        // map result to object
-        RowMapper<Speaker> speakerRowMapper = (rs, rowNum) -> {
-            Speaker speaker = new Speaker();
-            speaker.setId(rs.getInt("id"));
-            speaker.setName(rs.getString("name"));
-            return speaker;
-        };
-
-
-        List<Speaker> speakers = jdbcTemplate.query("select * from speakers", speakerRowMapper);
+        List<Speaker> speakers = jdbcTemplate.query("select * from speakers", new SpeakerRowMapper());
         return speakers;
     }
 
