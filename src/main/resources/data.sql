@@ -1,0 +1,1 @@
+INSERT INTO speakers(name) values ('Anas');
