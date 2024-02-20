@@ -13,5 +13,5 @@ public interface SpeakerRepository {
 
     Speaker update(Speaker speaker);
 
-    void update(List<Object[]> pairs);
+    void batchUpdate(List<Object[]> pairs);
 }

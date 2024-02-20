@@ -47,6 +47,6 @@ public class SpeakerServiceImpl implements SpeakerService {
             pairs.add(tmp);
         }
 
-        speakerRepository.update(pairs);
+        speakerRepository.batchUpdate(pairs);
     }
 }
