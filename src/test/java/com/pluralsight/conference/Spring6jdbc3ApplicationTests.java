@@ -39,7 +39,7 @@ class Spring6jdbc3ApplicationTests {
         List<Speaker> speakers = speakersResponse.getBody();
 
         for (Speaker speaker : speakers) {
-            System.out.println("Speaker name: " + speaker.getName());
+            System.out.println("Speaker name: " + speaker.getName() + " " + speaker.getSkill());
         }
     }
 

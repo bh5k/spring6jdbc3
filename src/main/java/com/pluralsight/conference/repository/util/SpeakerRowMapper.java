@@ -13,6 +13,7 @@ public class SpeakerRowMapper implements RowMapper<Speaker> {
         Speaker speaker = new Speaker();
         speaker.setId(rs.getInt("id"));
         speaker.setName(rs.getString("name"));
+        speaker.setSkill(rs.getString("skill"));
         return speaker;
     }
 }
