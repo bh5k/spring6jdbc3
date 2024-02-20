@@ -28,4 +28,15 @@ public class SpeakerRepositoryImpl implements SpeakerRepository {
         jdbcTemplate.update("INSERT INTO speakers (name) values (?)", speaker.getName());
         return null;
     }
+
+    @Override
+    public Speaker getSpeaker(int id) {
+        Speaker speaker = jdbcTemplate.
+                queryForObject(
+                    "select * from speakers where id = ?",
+                    new SpeakerRowMapper(),
+                    id
+                );
+        return speaker;
+    }
 }

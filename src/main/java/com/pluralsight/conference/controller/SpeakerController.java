@@ -25,4 +25,10 @@ public class SpeakerController {
     public List<Speaker> getSpeakers() {
         return speakerService.findAll();
     }
+
+
+    @GetMapping("/speaker/{id}")
+    public Speaker getSpeaker(@PathVariable("id") int id){
+        return speakerService.getSpeaker(id);
+    }
 }
