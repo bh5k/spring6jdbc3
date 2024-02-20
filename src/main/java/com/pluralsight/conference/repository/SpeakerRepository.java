@@ -10,4 +10,6 @@ public interface SpeakerRepository {
     Speaker create(Speaker speaker);
 
     Speaker getSpeaker(int id);
+
+    Speaker updateSpeaker(Speaker speaker);
 }

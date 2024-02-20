@@ -29,4 +29,10 @@ public class SpeakerServiceImpl implements SpeakerService {
     public Speaker getSpeaker(int id) {
         return speakerRepository.getSpeaker(id);
     }
+
+    @Override
+    public Speaker updateSpeaker(Speaker speaker) {
+        return speakerRepository.updateSpeaker(speaker);
+
+    }
 }

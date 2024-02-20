@@ -31,12 +31,19 @@ public class SpeakerRepositoryImpl implements SpeakerRepository {
 
     @Override
     public Speaker getSpeaker(int id) {
-        Speaker speaker = jdbcTemplate.
-                queryForObject(
+        Speaker speaker = jdbcTemplate.queryForObject(
                     "select * from speakers where id = ?",
                     new SpeakerRowMapper(),
                     id
-                );
+        );
+        return speaker;
+    }
+
+    @Override
+    public Speaker updateSpeaker(Speaker speaker) {
+        jdbcTemplate.update(
+                "update speakers set name = ? where id = ? ",
+                speaker.getName() , speaker.getId());
         return speaker;
     }
 }
