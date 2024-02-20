@@ -12,4 +12,6 @@ public interface SpeakerService {
     Speaker getSpeaker(int id);
 
     Speaker updateSpeaker(Speaker speaker);
+
+    void batch();
 }

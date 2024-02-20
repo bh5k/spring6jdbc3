@@ -40,10 +40,15 @@ public class SpeakerRepositoryImpl implements SpeakerRepository {
     }
 
     @Override
-    public Speaker updateSpeaker(Speaker speaker) {
+    public Speaker update(Speaker speaker) {
         jdbcTemplate.update(
                 "update speakers set name = ? where id = ? ",
                 speaker.getName() , speaker.getId());
         return speaker;
+    }
+
+    public void update(List<Object[]> pairs) {
+        jdbcTemplate.batchUpdate(
+                "update speakers set skill = ? where id = ?", pairs);
     }
 }

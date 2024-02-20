@@ -5,6 +5,7 @@ import com.pluralsight.conference.service.SpeakerService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class SpeakerController {
@@ -36,4 +37,12 @@ public class SpeakerController {
     public Speaker updateSpeaker(@RequestBody Speaker speaker){
         return speakerService.updateSpeaker(speaker);
     }
+
+    @GetMapping("/speaker/batch")
+    public Object batch(){
+        speakerService.batch();
+        return null;
+    }
+
+
 }
