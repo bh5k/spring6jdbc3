@@ -14,4 +14,6 @@ public interface SpeakerRepository {
     Speaker update(Speaker speaker);
 
     void batchUpdate(List<Object[]> pairs);
+
+    void delete(int id);
 }

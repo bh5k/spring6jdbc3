@@ -49,4 +49,9 @@ public class SpeakerServiceImpl implements SpeakerService {
 
         speakerRepository.batchUpdate(pairs);
     }
+
+    @Override
+    public void delete(int id) {
+        speakerRepository.delete(id);
+    }
 }
